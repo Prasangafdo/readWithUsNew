@@ -174,15 +174,16 @@ public class MemberSearchNew extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        String MemberID = tblMemberdata.getValueAt(0, 0).toString();
-        int MID = Integer.valueOf((String) MemberID);
-        String Fname =    tblMemberdata.getValueAt(0, 1).toString();
-        String Lname =   tblMemberdata.getValueAt(0, 2).toString();
-        String Birthday = tblMemberdata.getValueAt(0, 3).toString();
-        String Address =  tblMemberdata.getValueAt(0, 4).toString();
-        String NIC =     tblMemberdata.getValueAt(0, 5).toString();
-        String Gender =   tblMemberdata.getValueAt(0, 6).toString();
+       
+        String Fname =    tblMemberdata.getValueAt(0, 0).toString();
+        String Lname =   tblMemberdata.getValueAt(0, 1).toString();
+        String Birthday = tblMemberdata.getValueAt(0, 2).toString();
+        String Address =  tblMemberdata.getValueAt(0, 3).toString();
+        String NIC =     tblMemberdata.getValueAt(0, 4).toString();
+        String Gender =   tblMemberdata.getValueAt(0, 5).toString();
+        String MID =   tblMemberdata.getValueAt(0, 6).toString();
 
+        
         String sql = "UPDATE `memberreg` SET `Fname`='"+Fname+"', `Lname`='"+Lname+"', `dob` = '"+Birthday+"',  `Address` = '"+Address+"', `NIC` = '"+NIC+"', `Gender` = '"+Gender+"' where MemberID = '"+MID+"'";
 
         try{
@@ -192,6 +193,7 @@ public class MemberSearchNew extends javax.swing.JFrame {
         catch(Exception ex){
             JOptionPane.showMessageDialog(null, ex);
         }
+   
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -208,6 +210,7 @@ public class MemberSearchNew extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnDeleteActionPerformed
 
+   
     /**
      * @param args the command line arguments
      */
