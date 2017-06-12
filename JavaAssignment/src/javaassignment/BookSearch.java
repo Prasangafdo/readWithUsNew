@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import static javaassignment.BookReg.c;
 import static javaassignment.BookReg.rs;
 import static javaassignment.BookReg.s;
+import static javaassignment.MemberReg.Search;
 import javax.swing.JOptionPane;
 import static javaassignment.MemberReg.Updater;
 import net.proteanit.sql.DbUtils;
@@ -160,8 +161,8 @@ public class BookSearch extends javax.swing.JFrame {
        try{
             String txtdata = txtSearch.getText();
             String sql = "SELECT * FROM `bookreg` WHERE TITLE ='"+txtdata+"' ";
-            Search(sql);
-              tblBookData.setModel(DbUtils.resultSetToTableModel(rset));
+             ResultSet rset=  Search(sql);
+            tblBookData.setModel(DbUtils.resultSetToTableModel(rset));
         }
         catch( Exception ex){
         JOptionPane.showMessageDialog(null, ex);
@@ -169,9 +170,9 @@ public class BookSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        String MemberID = tblBookData.getValueAt(0, 6).toString();
-        int MID = Integer.valueOf((String) MemberID);
-        String sql = "DELETE from `memberreg` WHERE `MemberID` = '"+MID+"'";
+        String ISBN = tblBookData.getValueAt(0, 0).toString();
+        int Book = Integer.valueOf((String) ISBN);
+        String sql = "DELETE from `bookreg` WHERE `ISBN` = '"+Book+"'";
         try{
             Updater(sql);
             JOptionPane.showMessageDialog(null, "Value deleted successfully");
@@ -184,16 +185,15 @@ public class BookSearch extends javax.swing.JFrame {
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
         String ISBN =    tblBookData.getValueAt(0, 0).toString();
-        String TIITLE =   tblBookData.getValueAt(0, 1).toString();
+        String TITLE =   tblBookData.getValueAt(0, 1).toString();
         String AUTHOR = tblBookData.getValueAt(0, 2).toString();
-        String PUBLISHHER =  tblBookData.getValueAt(0, 3).toString();
+        String PUBLISHER =  tblBookData.getValueAt(0, 3).toString();
         String EDITION =     tblBookData.getValueAt(0, 4).toString();
         String CATEGORY =   tblBookData.getValueAt(0, 5).toString();
         String YEAR =   tblBookData.getValueAt(0, 6).toString();
 
-        String sql = "UPDATE `bookreg` SET `TIITLE`='"+TIITLE+"', `AUTHOR` = '"+AUTHOR+"',  `PUBLISHHER`"
-                + " = '"+PUBLISHHER+"', `EDITION` = '"+EDITION+"', `CATEGORY` = '"+CATEGORY+", `YEAR`='"+YEAR+" where ISBN = '"+ISBN+"'";
-
+        String sql = "UPDATE `bookreg` SET `TITLE`='"+TITLE+"', `AUTHOR` = '"+AUTHOR+"',  `PUBLISHER`"
+                + " = '"+PUBLISHER+"', `EDITION` = '"+EDITION+"', `CATEGORY` = '"+CATEGORY+"', `YEAR`='"+YEAR+"' where ISBN = '"+ISBN+"'";
         try{
             Updater(sql);
             JOptionPane.showMessageDialog(null, "Values are updated");
