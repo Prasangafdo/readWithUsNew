@@ -55,7 +55,7 @@ public class MemberSearch extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblMemberdata = new javax.swing.JTable();
+        tblMemberData = new javax.swing.JTable();
         Background = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -144,7 +144,7 @@ public class MemberSearch extends javax.swing.JFrame {
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 690, 120);
 
-        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, memberreg_1List2, tblMemberdata);
+        org.jdesktop.swingbinding.JTableBinding jTableBinding = org.jdesktop.swingbinding.SwingBindings.createJTableBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, memberreg_1List2, tblMemberData);
         org.jdesktop.swingbinding.JTableBinding.ColumnBinding columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${memberid}"));
         columnBinding.setColumnName("Memberid");
         columnBinding.setColumnClass(Integer.class);
@@ -168,7 +168,7 @@ public class MemberSearch extends javax.swing.JFrame {
         columnBinding.setColumnClass(String.class);
         bindingGroup.addBinding(jTableBinding);
 
-        jScrollPane1.setViewportView(tblMemberdata);
+        jScrollPane1.setViewportView(tblMemberData);
 
         getContentPane().add(jScrollPane1);
         jScrollPane1.setBounds(50, 190, 620, 120);
@@ -185,7 +185,7 @@ public class MemberSearch extends javax.swing.JFrame {
        
         try {
             ResultSet rset=  Search(sql);
-            tblMemberdata.setModel(DbUtils.resultSetToTableModel(rset));
+            tblMemberData.setModel(DbUtils.resultSetToTableModel(rset));
               } catch (Exception ex) {
             Logger.getLogger(MemberSearch.class.getName()).log(Level.SEVERE, null, ex);//auto gen one
             
@@ -193,14 +193,14 @@ public class MemberSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-       String MemberID = tblMemberdata.getValueAt(0, 0).toString();
+       String MemberID = tblMemberData.getValueAt(0, 0).toString();
         int MID = Integer.valueOf((String) MemberID);
-        String Fname =    tblMemberdata.getValueAt(0, 1).toString();
-        String Lname =   tblMemberdata.getValueAt(0, 2).toString();
-        String Birthday = tblMemberdata.getValueAt(0, 3).toString();
-        String Address =  tblMemberdata.getValueAt(0, 4).toString();
-        String NIC =     tblMemberdata.getValueAt(0, 5).toString();
-        String Gender =   tblMemberdata.getValueAt(0, 6).toString();
+        String Fname =    tblMemberData.getValueAt(0, 1).toString();
+        String Lname =   tblMemberData.getValueAt(0, 2).toString();
+        String Birthday = tblMemberData.getValueAt(0, 3).toString();
+        String Address =  tblMemberData.getValueAt(0, 4).toString();
+        String NIC =     tblMemberData.getValueAt(0, 5).toString();
+        String Gender =   tblMemberData.getValueAt(0, 6).toString();
                  
           String sql = "UPDATE `memberreg` SET `Fname`='"+Fname+"', `Lname`='"+Lname+"', `dob` = '"+Birthday+"',  `Address` = '"+Address+"', `NIC` = '"+NIC+"', `Gender` = '"+Gender+"' where MemberID = '"+MID+"'";
           
@@ -214,7 +214,7 @@ public class MemberSearch extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        String MemberID = tblMemberdata.getValueAt(0, 0).toString();
+        String MemberID = tblMemberData.getValueAt(0, 0).toString();
         int MID = Integer.valueOf((String) MemberID);
         String sql = "DELETE from `memberreg` WHERE `MemberID` = '"+MID+"'";
         try{
@@ -290,7 +290,7 @@ public class MemberSearch extends javax.swing.JFrame {
     private javax.persistence.Query memberreg_1Query;
     private javax.persistence.Query memberreg_1Query1;
     private javax.persistence.Query memberreg_1Query2;
-    private javax.swing.JTable tblMemberdata;
+    private javax.swing.JTable tblMemberData;
     private javax.swing.JTextField txtSearchBox;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables
