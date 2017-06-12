@@ -316,7 +316,7 @@ public class BookReturn extends javax.swing.JFrame {
          
           String del = "DELETE from `bookborrowing` WHERE `ISBN` ='"+getISBN()+"'";
           Updater(del);
-          JOptionPane.showMessageDialog(null, "Value deleted successfully");
+          JOptionPane.showMessageDialog(null, "Book successfully returned");
         }
         catch( Exception ex){
         JOptionPane.showMessageDialog(null, ex);

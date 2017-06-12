@@ -46,10 +46,8 @@ public class BookBorrow extends javax.swing.JFrame {
         dtpDate = new org.jdesktop.swingx.JXDatePicker();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnReserve = new javax.swing.JButton();
         dtpReturnDate = new org.jdesktop.swingx.JXDatePicker();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         jLabel5.setText("jLabel5");
@@ -129,26 +127,12 @@ public class BookBorrow extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 570, 60);
-
-        btnReserve.setText("Reserve the Book");
-        btnReserve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReserveActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnReserve);
-        btnReserve.setBounds(300, 230, 130, 40);
         getContentPane().add(dtpReturnDate);
         dtpReturnDate.setBounds(140, 200, 150, 22);
 
         jLabel6.setText("Return Date");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(60, 200, 70, 14);
-
-        jLabel7.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel7.setText("Do not fill this if reserving a book");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(300, 200, 180, 14);
         getContentPane().add(background);
         background.setBounds(0, 0, 570, 320);
 
@@ -173,28 +157,9 @@ public class BookBorrow extends javax.swing.JFrame {
     
     
     private void btnBorrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBorrowActionPerformed
-      
-        try{
-             long temp = getdateDifference(getDate(),getReturnDate());
-                          
-            if(temp > 0){//Member at least keep the book for a day
 
-        bookBorrow();
-        String borrowedDate = getDate();
-        String returnDate = getReturnDate();
-
-        String sql = "INSERT INTO BookBorrowing (MemberID,ISBN,BorrowedDate, ReturnDate) values('"+ txtMemberID.getText() +"', '"+ txtISBN.getText() +"', '"+borrowedDate+"','"+returnDate+"')";
-        Updater(sql);
-        
-        deleteBook();
-           }
-         }
-          
-        catch( Exception ex){
-        JOptionPane.showMessageDialog(null, ex);
-        }
-        
-     
+   bookBorrow();
+   deleteBook();
 
     }//GEN-LAST:event_btnBorrowActionPerformed
 
@@ -232,7 +197,10 @@ private void getsqlMember(){
 
 private void bookBorrow(){//This method also includes insert data to the "borrowedbooks" table in the database
    
-     try{               
+     try{            
+               long temp = getdateDifference(getDate(),getReturnDate());
+                          
+            if(temp > 0){//Member at least keep the book for a day
             String sqlBookDetails = "SELECT ISBN, TITLE, AUTHOR, PUBLISHER,EDITION, CATEGORY, YEAR FROM BOOKREG WHERE ISBN ='"+txtISBN.getText()+"'";
             ResultSet rs = Search(sqlBookDetails);
           
@@ -255,43 +223,25 @@ private void bookBorrow(){//This method also includes insert data to the "borrow
             CATEGORY = (rs.getString("CATEGORY"));
             YEAR = (rs.getString("YEAR"));
             
-            String sqlinsert = "INSERT INTO borrowedbooks (ISBN, BOOKTITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) values('"+ISBN +"','"+ TITLE +"', '"+ AUTHOR +"', '"+PUBLISHER+"', '"+EDITION+"', '"+CATEGORY+"', '"+YEAR+"')";
-            
-            Updater(sqlinsert);
-           }
-        catch( Exception ex){
-        JOptionPane.showMessageDialog(null, ex);
-        }
-           
-           
-}
-private void bookReserve(){//This method also includes insert data to the "borrowedbooks" table in the database
-   
-     try{               
-            String sqlBookDetails = "SELECT ISBN, TITLE, AUTHOR, PUBLISHER,EDITION, CATEGORY, YEAR FROM BOOKREG WHERE ISBN ='"+txtISBN.getText()+"'";
-            ResultSet rs = Search(sqlBookDetails);
+            //
           
-            
-            String ISBN = ""; 
-            String TITLE = ""; 
-            String AUTHOR = ""; 
-            String PUBLISHER = ""; 
-            String EDITION = ""; 
-            String CATEGORY = ""; 
-            String YEAR = ""; 
-           
-            rs.first();//Does the searching
  
-            ISBN = (rs.getString("ISBN"));
-            TITLE = (rs.getString("TITLE"));
-            AUTHOR = (rs.getString("AUTHOR"));
-            PUBLISHER = (rs.getString("PUBLISHER"));
-            EDITION = (rs.getString("EDITION"));
-            CATEGORY = (rs.getString("CATEGORY"));
-            YEAR = (rs.getString("YEAR"));
+        String borrowedDate = getDate();
+        String returnDate = getReturnDate();
+       // deleteBook();
+            //
+            String sqlinsert = "INSERT INTO bookborrowing (ISBN, BOOKTITLE, AUTHOR, "//Insert to bookborrowing table
+                    + "PUBLISHER, EDITION, CATEGORY, YEAR, memberID, borrowedDate, returnDate) "
+                    + "values('"+ISBN +"','"+ TITLE +"', '"+ AUTHOR +"', '"+PUBLISHER+"', '"
+                    +EDITION+"', '"+CATEGORY+"', '"+YEAR+"', '"+txtMemberID.getText()+"','"+borrowedDate+"','"+returnDate+"')";
             
-            String sqlinsert = "INSERT INTO reservedbooks (ISBN, BOOKTITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) values('"+ISBN +"','"+ TITLE +"', '"+ AUTHOR +"', '"+PUBLISHER+"', '"+EDITION+"', '"+CATEGORY+"', '"+YEAR+"')";
+            String reports = "INSERT INTO bookborrowreports (ISBN, MemberID, BorrowedDate, "//For getting the reports
+                    + "ReturnedDate) "
+                    + "values('"+ISBN +"','"+ txtMemberID.getText() +"', '"+ borrowedDate +"', '"+returnDate+"')";
+            
             Updater(sqlinsert);
+            Updater(reports);
+            }
            }
         catch( Exception ex){
         JOptionPane.showMessageDialog(null, ex);
@@ -328,26 +278,6 @@ private void bookReserve(){//This method also includes insert data to the "borro
                      getsqlISBN();
          }
     }//GEN-LAST:event_txtISBNKeyPressed
-
-    private void btnReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReserveActionPerformed
-        try{
-        //getsqlMember();
-       // getsqlISBN();
-        bookReserve();
-        String borrowedDate = getDate();
-                
-        String sql = "INSERT INTO bookreservation (Member_ID,ISBN,RESERVED_DATE) values('"+ txtMemberID.getText() +"', '"+ txtISBN.getText() +"', '"+borrowedDate+"')";
-        
-        Updater(sql);
-        JOptionPane.showMessageDialog(null, "Successfully reserved");
-        
-       // deleteBook();
-         }
-          
-        catch( Exception ex){
-        JOptionPane.showMessageDialog(null, ex);
-        }
-    }//GEN-LAST:event_btnReserveActionPerformed
    
     private String getDate(){
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -375,7 +305,7 @@ private void bookReserve(){//This method also includes insert data to the "borro
         final long days = ChronoUnit.DAYS.between(firstDate, secondDate);
         return days;
     }
-    
+ 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -418,7 +348,6 @@ private void bookReserve(){//This method also includes insert data to the "borro
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
     private javax.swing.JButton btnBorrow;
-    private javax.swing.JButton btnReserve;
     private org.jdesktop.swingx.JXDatePicker dtpDate;
     private org.jdesktop.swingx.JXDatePicker dtpReturnDate;
     private javax.swing.JLabel jLabel1;
@@ -427,7 +356,6 @@ private void bookReserve(){//This method also includes insert data to the "borro
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtMemberID;

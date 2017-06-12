@@ -5,6 +5,7 @@
     <class>javaassignment.Member1</class>
     <class>javaassignment.Memberreg_1</class>
     <class>javaassignment.Bookreg_1</class>
+    <class>javaassignment.Bookborrowing</class>
     <class>javaassignment.Bookreservationreports_1</class>
     <class>javaassignment.Bookborrowreports_1</class>
     <properties>

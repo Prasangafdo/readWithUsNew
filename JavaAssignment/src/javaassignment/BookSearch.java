@@ -55,7 +55,7 @@ public class BookSearch extends javax.swing.JFrame {
 
         jLabel1.setText("Search");
 
-        txtSearch.setText("Enter BookID here");
+        txtSearch.setText("Enter book title here");
         txtSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtSearchActionPerformed(evt);

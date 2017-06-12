@@ -44,7 +44,7 @@ public class BookReservation extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnReserve = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnCompleteReservation = new javax.swing.JButton();
         lblBookTitleDisplay = new javax.swing.JLabel();
         btnCheckBook = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -130,15 +130,15 @@ public class BookReservation extends javax.swing.JFrame {
         getContentPane().add(btnReserve);
         btnReserve.setBounds(290, 270, 130, 40);
 
-        jButton1.setBackground(new java.awt.Color(153, 48, 48));
-        jButton1.setText("Complete/ Cancel Reservation");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCompleteReservation.setBackground(new java.awt.Color(153, 48, 48));
+        btnCompleteReservation.setText("Complete/ Cancel Reservation");
+        btnCompleteReservation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCompleteReservationActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(30, 270, 210, 40);
+        getContentPane().add(btnCompleteReservation);
+        btnCompleteReservation.setBounds(30, 270, 210, 40);
 
         lblBookTitleDisplay.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         getContentPane().add(lblBookTitleDisplay);
@@ -170,7 +170,6 @@ public class BookReservation extends javax.swing.JFrame {
         if(evt.getKeyCode()== KeyEvent.VK_ENTER){//Code by Miss Malsha
             getsqlMember();
         }
-
     }//GEN-LAST:event_txtMemberIDKeyPressed
 
     private void txtISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISBNActionPerformed
@@ -187,13 +186,13 @@ public class BookReservation extends javax.swing.JFrame {
         try{
             //Working
             bookReserve();
+            reportBookReservation();
             String borrowedDate = getDate();
 
             String sql = "INSERT INTO bookreservation (MemberID,ISBN,RESERVEDDATE) values('"+ txtMemberID.getText() +"', '"+ txtISBN.getText() +"', '"+borrowedDate+"')";
 
             Updater(sql);
             JOptionPane.showMessageDialog(null, "Successfully reserved");
-
              deleteBook();
         }
 
@@ -218,12 +217,27 @@ public class BookReservation extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCheckBookActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCompleteReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteReservationActionPerformed
        
        recoverBook();//Working
        deleteReservation();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCompleteReservationActionPerformed
 
+    private void reportBookReservation(){
+         try{
+            String borrowedDate = getDate();
+            String sql = "INSERT INTO bookreservationreports (ISBN, MemberID, ReservedDate) "
+                    + "values('"+ txtISBN.getText() +"', '"+ txtMemberID.getText() +"', '"+lblBookTitleDisplay.getText()+"','"+borrowedDate+"')";
+
+            Updater(sql);
+            JOptionPane.showMessageDialog(null, "Successfully reserved");
+             deleteBook();
+        }
+
+        catch( Exception ex){
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -273,7 +287,7 @@ public class BookReservation extends javax.swing.JFrame {
     }
  
     private void getsqlMember(){
-    //Created in a seperate method to increase cohesion
+    //Created in a seperate method
     try{               
             String sqlUsername = "SELECT MemberID FROM Member where MemberID = '"+txtMemberID.getText()+"'";
             ResultSet rs = Search(sqlUsername);
@@ -443,9 +457,9 @@ public class BookReservation extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCheckBook;
     private javax.swing.JLabel btnCheckreservation;
+    private javax.swing.JButton btnCompleteReservation;
     private javax.swing.JButton btnReserve;
     private org.jdesktop.swingx.JXDatePicker dtpDate;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
