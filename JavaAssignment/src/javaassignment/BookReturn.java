@@ -40,7 +40,6 @@ public class BookReturn extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtMemberID = new javax.swing.JTextField();
-        txtISBN = new javax.swing.JTextField();
         dtpDate = new org.jdesktop.swingx.JXDatePicker();
         lblBookTitleDisplay = new javax.swing.JLabel();
         lblFineDisplay = new javax.swing.JLabel();
@@ -50,7 +49,6 @@ public class BookReturn extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -89,14 +87,6 @@ public class BookReturn extends javax.swing.JFrame {
         });
         getContentPane().add(txtMemberID);
         txtMemberID.setBounds(220, 110, 150, 20);
-
-        txtISBN.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtISBNActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtISBN);
-        txtISBN.setBounds(420, 130, 150, 20);
         getContentPane().add(dtpDate);
         dtpDate.setBounds(220, 150, 150, 22);
 
@@ -147,13 +137,6 @@ public class BookReturn extends javax.swing.JFrame {
         jLabel2.setText("Member ID");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(50, 110, 60, 14);
-
-        jLabel6.setForeground(new java.awt.Color(240, 240, 240));
-        jLabel6.setText("press enter to get data. Temporrary it's in jbutton");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(70, 80, 267, 23);
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prasanga Fernando\\Documents\\ESOFT\\Java\\Java System\\JavaAssignment\\Book-Return.jpg")); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 50, 600, 350);
 
@@ -195,10 +178,6 @@ public class BookReturn extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Book returned successfully");
         }
     }//GEN-LAST:event_btnReturnActionPerformed
-
-    private void txtISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtISBNActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtISBNActionPerformed
 
         private String getcurrentDate(){
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
@@ -403,12 +382,10 @@ public class BookReturn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBookTitleDisplay;
     private javax.swing.JLabel lblFine;
     private javax.swing.JLabel lblFineDisplay;
-    private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtMemberID;
     // End of variables declaration//GEN-END:variables
 }

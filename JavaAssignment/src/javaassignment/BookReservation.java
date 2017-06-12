@@ -202,18 +202,17 @@ public class BookReservation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnReserveActionPerformed
 
     private void btnCheckBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckBookActionPerformed
-      String BookTitle;
+     // String BookTitle;
          try{               
-            String sql = "SELECT BookTitle FROM `reservedbooks` WHERE ISBN ='"+getISBN()+"'";
+            String sql = "SELECT * FROM `bookreg` WHERE ISBN ='"+lblBookTitleDisplay.getText()+"'";
             ResultSet rs = Search(sql);
     
-            rs.first();
-            BookTitle = rs.getString("BookTitle");
-             lblBookTitleDisplay.setText(BookTitle);
-
+           if(rs.first()==true){
+                JOptionPane.showMessageDialog(null, "Book is available");
+           }
         }
         catch( Exception ex){
-        JOptionPane.showMessageDialog(null, ex);
+        JOptionPane.showMessageDialog(null, "Book not available");
         }
     }//GEN-LAST:event_btnCheckBookActionPerformed
 
@@ -225,14 +224,13 @@ public class BookReservation extends javax.swing.JFrame {
 
     private void reportBookReservation(){
          try{
-            String borrowedDate = getDate();
-            String sql = "INSERT INTO bookreservationreports (ISBN, MemberID, ReservedDate) "
-                    + "values('"+ txtISBN.getText() +"', '"+ txtMemberID.getText() +"', '"+lblBookTitleDisplay.getText()+"','"+borrowedDate+"')";
+            String resDate = getDate();
+            String sql = "INSERT INTO bookreservationreports (ISBN, MemberID, ReservedDate)"
+                    + "values('"+ txtISBN.getText() +"', '"+ txtMemberID.getText() 
+                    +"','"+resDate+"')";
 
             Updater(sql);
-            JOptionPane.showMessageDialog(null, "Successfully reserved");
-             deleteBook();
-        }
+            }
 
         catch( Exception ex){
             JOptionPane.showMessageDialog(null, ex);
