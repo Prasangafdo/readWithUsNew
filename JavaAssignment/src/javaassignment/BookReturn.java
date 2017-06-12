@@ -11,8 +11,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import static javaassignment.Login.Search;
 import static javaassignment.MemberReg.Updater;
 import javax.swing.JOptionPane;
@@ -265,7 +263,7 @@ public class BookReturn extends javax.swing.JFrame {
            difference =  bb.getdateDifference(databasedate,getcurrentDate());
            
         } catch (IOException ex) {
-            Logger.getLogger(BookReturnold.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(null, ex);
         }
         return difference;
     }
