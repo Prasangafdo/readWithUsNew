@@ -197,7 +197,7 @@ public class MemberSearchNew extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        String MemberID = tblMemberdata.getValueAt(0, 0).toString();
+        String MemberID = tblMemberdata.getValueAt(0, 6).toString();
         int MID = Integer.valueOf((String) MemberID);
         String sql = "DELETE from `memberreg` WHERE `MemberID` = '"+MID+"'";
         try{
