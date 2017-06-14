@@ -49,6 +49,7 @@ public class BookBorrow extends javax.swing.JFrame {
         dtpReturnDate = new org.jdesktop.swingx.JXDatePicker();
         jLabel6 = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         jLabel5.setText("jLabel5");
 
@@ -135,6 +136,20 @@ public class BookBorrow extends javax.swing.JFrame {
         jLabel6.setBounds(60, 200, 70, 14);
         getContentPane().add(background);
         background.setBounds(0, 0, 570, 320);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 570, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 60, 570, 270);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -357,6 +372,7 @@ private void bookBorrow(){//This method also includes insert data to the "borrow
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtMemberID;
     // End of variables declaration//GEN-END:variables
