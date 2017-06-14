@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2017 at 01:49 PM
+-- Generation Time: Jun 14, 2017 at 02:47 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.5.28
 
@@ -57,7 +57,31 @@ CREATE TABLE IF NOT EXISTS `bookborrowing` (
   `memberID` int(11) NOT NULL,
   `borrowedDate` date NOT NULL,
   `returnDate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `bookborrowreports`
+--
+
+CREATE TABLE IF NOT EXISTS `bookborrowreports` (
+  `reportID` int(11) NOT NULL,
+  `ISBN` varchar(30) NOT NULL,
+  `MemberID` int(11) NOT NULL,
+  `BorrowedDate` date NOT NULL,
+  `ReturnedDate` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bookborrowreports`
+--
+
+INSERT INTO `bookborrowreports` (`reportID`, `ISBN`, `MemberID`, `BorrowedDate`, `ReturnedDate`) VALUES
+(1, '12321', 1, '2017-06-14', '2017-06-15'),
+(2, '12321', 1, '2017-06-07', '2017-06-15'),
+(3, '12321', 1, '2017-06-22', '2017-06-30'),
+(4, '12321', 1, '2017-06-22', '2017-06-30');
 
 -- --------------------------------------------------------
 
@@ -80,8 +104,8 @@ CREATE TABLE IF NOT EXISTS `bookreg` (
 --
 
 INSERT INTO `bookreg` (`ISBN`, `TITLE`, `AUTHOR`, `PUBLISHER`, `EDITION`, `CATEGORY`, `YEAR`) VALUES
-('2', 'ttwewer', 'wfasf', 'sfsfa', 234, 'fasd', 1232),
-('55', 'newTitle', 'qwqw', 'dsfdss', 5, 'wqwq', 123);
+('12321', 'Updated book', 'Auth up', 'Publisher up', 2, 'Classic', 2000),
+('12332131vsd', 'New Title', 'Auth', 'ddd', 123, 'cat', 2003);
 
 -- --------------------------------------------------------
 
@@ -99,6 +123,47 @@ CREATE TABLE IF NOT EXISTS `bookreservation` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bookreservationreports`
+--
+
+CREATE TABLE IF NOT EXISTS `bookreservationreports` (
+  `reportID` int(11) NOT NULL,
+  `ISBN` varchar(30) NOT NULL,
+  `MemberID` int(11) NOT NULL,
+  `ReservedDate` date NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bookreservationreports`
+--
+
+INSERT INTO `bookreservationreports` (`reportID`, `ISBN`, `MemberID`, `ReservedDate`) VALUES
+(1, '', 1, '2017-06-22'),
+(2, '12321', 1, '2017-06-14');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `finerecords`
+--
+
+CREATE TABLE IF NOT EXISTS `finerecords` (
+  `memberID` int(11) NOT NULL,
+  `ISBN` varchar(30) NOT NULL,
+  `Fines` int(11) NOT NULL,
+  `FineID` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `finerecords`
+--
+
+INSERT INTO `finerecords` (`memberID`, `ISBN`, `Fines`, `FineID`) VALUES
+(1, '12321', 70, 5);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `memberreg`
 --
 
@@ -110,15 +175,14 @@ CREATE TABLE IF NOT EXISTS `memberreg` (
   `NIC` varchar(12) NOT NULL,
   `GENDER` varchar(6) NOT NULL,
   `MEMBERID` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `memberreg`
 --
 
 INSERT INTO `memberreg` (`FNAME`, `LNAME`, `DOB`, `ADDRESS`, `NIC`, `GENDER`, `MEMBERID`) VALUES
-('Prasanga', 'Fernando', '1996-12-15', '102 Andiambalama', '960273397V', 'Male', 1),
-('Nathan', 'De Lima', '1995-06-06', 'Negombo', '9509456466v', 'Male', 3);
+('Prasanga', 'Fernando', '1996-12-15', '102 Andiambalama', '960273397V', 'Male', 1);
 
 -- --------------------------------------------------------
 
@@ -148,6 +212,12 @@ ALTER TABLE `bookborrowing`
   ADD PRIMARY KEY (`borrowID`);
 
 --
+-- Indexes for table `bookborrowreports`
+--
+ALTER TABLE `bookborrowreports`
+  ADD PRIMARY KEY (`reportID`);
+
+--
 -- Indexes for table `bookreg`
 --
 ALTER TABLE `bookreg`
@@ -158,6 +228,18 @@ ALTER TABLE `bookreg`
 --
 ALTER TABLE `bookreservation`
   ADD PRIMARY KEY (`ReservationID`);
+
+--
+-- Indexes for table `bookreservationreports`
+--
+ALTER TABLE `bookreservationreports`
+  ADD PRIMARY KEY (`reportID`);
+
+--
+-- Indexes for table `finerecords`
+--
+ALTER TABLE `finerecords`
+  ADD PRIMARY KEY (`FineID`);
 
 --
 -- Indexes for table `memberreg`
@@ -179,17 +261,32 @@ ALTER TABLE `reservedbooks`
 -- AUTO_INCREMENT for table `bookborrowing`
 --
 ALTER TABLE `bookborrowing`
-  MODIFY `borrowID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `borrowID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `bookborrowreports`
+--
+ALTER TABLE `bookborrowreports`
+  MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `bookreservation`
 --
 ALTER TABLE `bookreservation`
   MODIFY `ReservationID` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `bookreservationreports`
+--
+ALTER TABLE `bookreservationreports`
+  MODIFY `reportID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `finerecords`
+--
+ALTER TABLE `finerecords`
+  MODIFY `FineID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
 -- AUTO_INCREMENT for table `memberreg`
 --
 ALTER TABLE `memberreg`
-  MODIFY `MEMBERID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `MEMBERID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `reservedbooks`
 --
