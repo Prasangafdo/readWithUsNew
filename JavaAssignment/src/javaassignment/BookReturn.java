@@ -52,6 +52,7 @@ public class BookReturn extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 370));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(128, 93, 23));
@@ -86,9 +87,9 @@ public class BookReturn extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtMemberID);
-        txtMemberID.setBounds(220, 110, 150, 20);
+        txtMemberID.setBounds(220, 110, 160, 30);
         getContentPane().add(dtpDate);
-        dtpDate.setBounds(220, 150, 150, 22);
+        dtpDate.setBounds(220, 150, 160, 30);
 
         lblBookTitleDisplay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblBookTitleDisplay.setForeground(new java.awt.Color(240, 240, 240));
@@ -107,7 +108,7 @@ public class BookReturn extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btngetData);
-        btngetData.setBounds(360, 290, 90, 40);
+        btngetData.setBounds(280, 290, 90, 40);
 
         btnReturn.setText("Return the Book");
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
@@ -116,27 +117,27 @@ public class BookReturn extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnReturn);
-        btnReturn.setBounds(461, 290, 120, 40);
+        btnReturn.setBounds(440, 290, 120, 40);
 
         lblFine.setForeground(new java.awt.Color(240, 240, 240));
         lblFine.setText("Fine");
         getContentPane().add(lblFine);
-        lblFine.setBounds(70, 260, 40, 14);
+        lblFine.setBounds(50, 260, 40, 14);
 
         jLabel1.setForeground(new java.awt.Color(240, 240, 240));
         jLabel1.setText("Book Title");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(60, 200, 60, 14);
+        jLabel1.setBounds(50, 200, 60, 14);
 
         jLabel4.setForeground(new java.awt.Color(240, 240, 240));
         jLabel4.setText("Current Date");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(50, 150, 80, 14);
+        jLabel4.setBounds(50, 160, 80, 14);
 
         jLabel2.setForeground(new java.awt.Color(240, 240, 240));
         jLabel2.setText("Member ID");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(50, 110, 60, 14);
+        jLabel2.setBounds(50, 120, 60, 14);
 
         jLabel3.setBackground(new java.awt.Color(0, 153, 153));
         jLabel3.setOpaque(true);
@@ -175,21 +176,23 @@ public class BookReturn extends javax.swing.JFrame {
 
         try{
             recoverBook();
+            insertFineRecords();
             deleteBorrow();//working
-        }
+           }
         catch(Exception ex){
-            JOptionPane.showMessageDialog(null, "Book returned successfully");
+            JOptionPane.showMessageDialog(null, "Book return failed!");
         }
     }//GEN-LAST:event_btnReturnActionPerformed
 
-        private String getcurrentDate(){
+    private String getcurrentDate(){
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
         dtpDate.setFormats(df);
         DateFormat sysDate = new SimpleDateFormat("yyyy/MM/dd");
         String Date = sysDate.format(dtpDate.getDate());
         return Date;
      }
-        private String getdatabaseDate(){//Getting the date from the database. But it's in an unsupported format. 
+    
+    private String getdatabaseDate(){//Getting the date from the database. But it's in an unsupported format. 
         String databaseDate = "";
          try{               
             String sqlUsername = "SELECT ReturnDate FROM `BookBorrowing` WHERE MemberID ='"+txtMemberID.getText()+"'";
@@ -326,7 +329,7 @@ public class BookReturn extends javax.swing.JFrame {
             Year = rs.getString("Year");
             
             lblBookTitleDisplay.setText(BookTitle); 
-             System.out.println(BookTitle+" "+Author+" "+Publisher+" "+Edition+" "+Category+" "+Year);
+            // System.out.println(BookTitle+" "+Author+" "+Publisher+" "+Edition+" "+Category+" "+Year);
              
              String insert = "INSERT INTO Bookreg (ISBN, TITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) values('"+getISBN()+"', '"+BookTitle+"', '"+Author+"', '"+Publisher+"', '"+Edition+"', '"+Category+"', '"+Year+"')";
              Updater(insert);
@@ -337,6 +340,15 @@ public class BookReturn extends javax.swing.JFrame {
     
     } 
  
+    private void insertFineRecords(){
+        try{
+        String sql = "INSERT INTO finerecords(memberID,ISBN,Fines)"
+                + " values('" + txtMemberID.getText() + "','" + getISBN() + "','" + lblFineDisplay.getText() + "')";
+        Updater(sql);
+        }
+        catch( Exception ex){
+        }
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

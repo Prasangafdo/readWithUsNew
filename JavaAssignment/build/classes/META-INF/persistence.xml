@@ -8,6 +8,7 @@
     <class>javaassignment.Bookborrowing</class>
     <class>javaassignment.Bookreservationreports_1</class>
     <class>javaassignment.Bookborrowreports_1</class>
+    <class>javaassignment.Finerecords_1</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/javaassignment?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

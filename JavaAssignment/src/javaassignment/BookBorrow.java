@@ -137,7 +137,7 @@ public class BookBorrow extends javax.swing.JFrame {
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment/f286c9a5f88adc84611943dd55daaeea_best-sat-prep-books-2017-picures-of-books_460-276.jpeg"))); // NOI18N
         background.setPreferredSize(new java.awt.Dimension(400, 276));
         getContentPane().add(background);
-        background.setBounds(0, 0, 570, 320);
+        background.setBounds(0, 0, 470, 320);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

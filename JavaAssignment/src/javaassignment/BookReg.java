@@ -179,10 +179,7 @@ public class BookReg extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
     try{
-        
-        //String sql = "INSERT INTO bookreg (ISBN,TITLE,AUTHOR,PUBLISHER,EDITION,CATEGORY,YEAR) values (txtISBN.getText(),txtTitle.getText(),txtAuthor.getText(),txtPublisher.getText(),txtEdition.getText(),txtCategory.getText(),txtYear.getText())";
-      //  String sql = "INSERT INTO bookreg (ISBN,TITLE,AUTHOR,PUBLISHER,EDITION,CATEGORY,YEAR) values (txtISBN.getText(),txtTitle.getText(),txtAuthor.getText(),txtPublisher.getText(),txtEdition.getText(),txtCategory.getText(),txtYear.getText())";
-         String sql = "INSERT INTO bookreg(ISBN,TITLE,AUTHOR,PUBLISHER,EDITION,CATEGORY,YEAR) values('" + txtISBN.getText() + "','" + txtTitle.getText() + "','" + txtAuthor.getText() + "','" + txtPublisher.getText() + "','" + txtEdition.getText() + "','" + txtCategory.getText() + "','" +txtYear.getText() + "')";
+        String sql = "INSERT INTO bookreg(ISBN,TITLE,AUTHOR,PUBLISHER,EDITION,CATEGORY,YEAR) values('" + txtISBN.getText() + "','" + txtTitle.getText() + "','" + txtAuthor.getText() + "','" + txtPublisher.getText() + "','" + txtEdition.getText() + "','" + txtCategory.getText() + "','" +txtYear.getText() + "')";
         Updater(sql);
         JOptionPane.showMessageDialog(null, "Values are updated");
         }
