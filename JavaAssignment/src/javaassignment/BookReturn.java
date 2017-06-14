@@ -107,7 +107,7 @@ public class BookReturn extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btngetData);
-        btngetData.setBounds(225, 290, 90, 30);
+        btngetData.setBounds(360, 290, 90, 40);
 
         btnReturn.setText("Return the Book");
         btnReturn.addActionListener(new java.awt.event.ActionListener() {
@@ -137,8 +137,11 @@ public class BookReturn extends javax.swing.JFrame {
         jLabel2.setText("Member ID");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(50, 110, 60, 14);
+
+        jLabel3.setBackground(new java.awt.Color(0, 153, 153));
+        jLabel3.setOpaque(true);
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, 50, 600, 350);
+        jLabel3.setBounds(0, 0, 600, 350);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
