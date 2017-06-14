@@ -56,9 +56,10 @@ public class BookReg extends javax.swing.JFrame {
         btnRegister = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 204, 0));
         setMinimumSize(new java.awt.Dimension(700, 420));
         getContentPane().setLayout(null);
 
@@ -76,7 +77,6 @@ public class BookReg extends javax.swing.JFrame {
         txtISBN.setBounds(150, 170, 120, 30);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(240, 240, 240));
         jLabel2.setText("Book Title");
         getContentPane().add(jLabel2);
         jLabel2.setBounds(60, 220, 80, 20);
@@ -84,7 +84,6 @@ public class BookReg extends javax.swing.JFrame {
         txtTitle.setBounds(150, 210, 120, 30);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(240, 240, 240));
         jLabel3.setText("Author");
         getContentPane().add(jLabel3);
         jLabel3.setBounds(60, 260, 60, 17);
@@ -105,7 +104,6 @@ public class BookReg extends javax.swing.JFrame {
         txtPublisher.setBounds(150, 290, 120, 30);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(240, 240, 240));
         jLabel6.setText("Edition");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(390, 180, 41, 17);
@@ -155,19 +153,18 @@ public class BookReg extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel9)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGap(282, 282, 282))
         );
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 700, 100);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Prasanga Fernando\\Documents\\ESOFT\\Java\\Java System\\JavaAssignment\\Bookreg.jpg")); // NOI18N
-        jLabel5.setText("jLabel5");
-        jLabel5.setOpaque(true);
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 4, 690, 360);
+        Background.setBackground(new java.awt.Color(102, 102, 0));
+        Background.setOpaque(true);
+        getContentPane().add(Background);
+        Background.setBounds(0, 0, 690, 370);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -272,12 +269,12 @@ public class BookReg extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Background;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
