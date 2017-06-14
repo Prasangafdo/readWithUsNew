@@ -49,12 +49,11 @@ public class BookBorrow extends javax.swing.JFrame {
         dtpReturnDate = new org.jdesktop.swingx.JXDatePicker();
         jLabel6 = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
 
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(570, 330));
+        setMinimumSize(new java.awt.Dimension(460, 330));
         getContentPane().setLayout(null);
 
         jLabel2.setText("Member ID");
@@ -63,7 +62,7 @@ public class BookBorrow extends javax.swing.JFrame {
 
         jLabel3.setText("ISBN");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(70, 120, 40, 14);
+        jLabel3.setBounds(90, 130, 40, 14);
 
         jLabel4.setText("Borrowed Date");
         getContentPane().add(jLabel4);
@@ -98,7 +97,7 @@ public class BookBorrow extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBorrow);
-        btnBorrow.setBounds(143, 232, 130, 40);
+        btnBorrow.setBounds(160, 240, 130, 40);
 
         dtpDate.setPreferredSize(new java.awt.Dimension(110, 25));
         getContentPane().add(dtpDate);
@@ -114,7 +113,7 @@ public class BookBorrow extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(173, Short.MAX_VALUE)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(144, 144, 144))
         );
@@ -127,29 +126,18 @@ public class BookBorrow extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 570, 60);
+        jPanel1.setBounds(0, 0, 460, 60);
         getContentPane().add(dtpReturnDate);
         dtpReturnDate.setBounds(140, 200, 150, 22);
 
         jLabel6.setText("Return Date");
         getContentPane().add(jLabel6);
         jLabel6.setBounds(60, 200, 70, 14);
+
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment/f286c9a5f88adc84611943dd55daaeea_best-sat-prep-books-2017-picures-of-books_460-276.jpeg"))); // NOI18N
+        background.setPreferredSize(new java.awt.Dimension(400, 276));
         getContentPane().add(background);
         background.setBounds(0, 0, 570, 320);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 60, 570, 270);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -372,7 +360,6 @@ private void bookBorrow(){//This method also includes insert data to the "borrow
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtMemberID;
     // End of variables declaration//GEN-END:variables
