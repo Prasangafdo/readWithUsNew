@@ -45,9 +45,6 @@ public class BookReservation extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         btnReserve = new javax.swing.JButton();
         btnCompleteReservation = new javax.swing.JButton();
-        lblBookTitleDisplay = new javax.swing.JLabel();
-        btnCheckBook = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         btnCheckreservation = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -63,7 +60,7 @@ public class BookReservation extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(240, 240, 240));
         jLabel3.setText("ISBN");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(30, 160, 40, 14);
+        jLabel3.setBounds(30, 140, 40, 14);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setText("Reservation  Date");
@@ -89,7 +86,7 @@ public class BookReservation extends javax.swing.JFrame {
             }
         });
         getContentPane().add(txtISBN);
-        txtISBN.setBounds(160, 150, 170, 30);
+        txtISBN.setBounds(160, 130, 170, 30);
 
         dtpDate.setPreferredSize(new java.awt.Dimension(110, 25));
         getContentPane().add(dtpDate);
@@ -140,25 +137,6 @@ public class BookReservation extends javax.swing.JFrame {
         getContentPane().add(btnCompleteReservation);
         btnCompleteReservation.setBounds(30, 270, 210, 40);
 
-        lblBookTitleDisplay.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        getContentPane().add(lblBookTitleDisplay);
-        lblBookTitleDisplay.setBounds(200, 120, 80, 20);
-
-        btnCheckBook.setBackground(new java.awt.Color(172, 188, 21));
-        btnCheckBook.setText("Check Book");
-        btnCheckBook.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckBookActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnCheckBook);
-        btnCheckBook.setBounds(350, 120, 100, 23);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Book Title");
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(20, 110, 110, 20);
-
         btnCheckreservation.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment/f286c9a5f88adc84611943dd55daaeea_best-sat-prep-books-2017-picures-of-books_460-276.jpeg"))); // NOI18N
         getContentPane().add(btnCheckreservation);
         btnCheckreservation.setBounds(0, 0, 460, 400);
@@ -200,21 +178,6 @@ public class BookReservation extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, ex);
         }
     }//GEN-LAST:event_btnReserveActionPerformed
-
-    private void btnCheckBookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckBookActionPerformed
-     // String BookTitle;
-         try{               
-            String sql = "SELECT * FROM `bookreg` WHERE ISBN ='"+lblBookTitleDisplay.getText()+"'";
-            ResultSet rs = Search(sql);
-    
-           if(rs.first()==true){
-                JOptionPane.showMessageDialog(null, "Book is available");
-           }
-        }
-        catch( Exception ex){
-        JOptionPane.showMessageDialog(null, "Book not available");
-        }
-    }//GEN-LAST:event_btnCheckBookActionPerformed
 
     private void btnCompleteReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteReservationActionPerformed
        
@@ -453,7 +416,6 @@ public class BookReservation extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCheckBook;
     private javax.swing.JLabel btnCheckreservation;
     private javax.swing.JButton btnCompleteReservation;
     private javax.swing.JButton btnReserve;
@@ -462,9 +424,7 @@ public class BookReservation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lblBookTitleDisplay;
     private javax.swing.JTextField txtISBN;
     private javax.swing.JTextField txtMemberID;
     // End of variables declaration//GEN-END:variables
