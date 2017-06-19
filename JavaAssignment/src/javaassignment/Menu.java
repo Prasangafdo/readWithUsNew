@@ -35,6 +35,9 @@ public class Menu extends javax.swing.JFrame {
         btnBookReturn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -59,7 +62,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBookReserve);
-        btnBookReserve.setBounds(10, 190, 170, 30);
+        btnBookReserve.setBounds(10, 220, 170, 30);
 
         btnBookBorrow.setBackground(new java.awt.Color(209, 198, 27));
         btnBookBorrow.setText("Book Borrowing");
@@ -69,7 +72,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBookBorrow);
-        btnBookBorrow.setBounds(10, 160, 170, 30);
+        btnBookBorrow.setBounds(10, 180, 170, 30);
 
         btnBookReg.setBackground(new java.awt.Color(209, 198, 27));
         btnBookReg.setText("Book Registration");
@@ -79,7 +82,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBookReg);
-        btnBookReg.setBounds(10, 130, 170, 30);
+        btnBookReg.setBounds(10, 140, 170, 30);
 
         btnMemberReg.setBackground(new java.awt.Color(209, 198, 27));
         btnMemberReg.setText("Member Registration");
@@ -99,7 +102,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnBookReturn);
-        btnBookReturn.setBounds(10, 220, 170, 30);
+        btnBookReturn.setBounds(10, 260, 170, 30);
 
         jPanel2.setBackground(new java.awt.Color(180, 144, 63));
 
@@ -110,6 +113,33 @@ public class Menu extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2);
         jPanel2.setBounds(0, 0, 460, 80);
+
+        jButton1.setText("Book Borrowing Reports");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1);
+        jButton1.setBounds(263, 130, 180, 23);
+
+        jButton2.setText("Book Reservation Reports");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2);
+        jButton2.setBounds(260, 170, 180, 23);
+
+        jButton3.setText("Fine Reports");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3);
+        jButton3.setBounds(260, 210, 180, 23);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaassignment/men head.jpg"))); // NOI18N
         jLabel1.setToolTipText("");
@@ -149,6 +179,21 @@ public class Menu extends javax.swing.JFrame {
        BookReturn brt = new BookReturn();
        brt.show();
     }//GEN-LAST:event_btnBookReturnActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      BookBorrowReports bbr = new BookBorrowReports();
+      bbr.show();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       BookReservationReports brr = new BookReservationReports();
+       brr.show();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       FineRecords fr = new FineRecords();
+       fr.show();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,6 +237,9 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnBookReturn;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnMemberReg;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
