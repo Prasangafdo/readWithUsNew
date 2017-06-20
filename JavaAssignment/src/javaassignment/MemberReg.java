@@ -198,7 +198,8 @@ public class MemberReg extends javax.swing.JFrame {
           try{
                  String birthday = Birthday();
                  System.out.println(birthday);
-        String sql = "INSERT INTO memberreg(FNAME,LNAME,DOB,ADDRESS,NIC,GENDER) values('" + txtFname.getText() + "','"+txtLname.getText()+"', '"+birthday+"' ,'" + txtAddress.getText() + "','" + txtNic.getText() + "','" +getGender()+"')";
+        String sql = "INSERT INTO memberreg(FNAME,LNAME,DOB,ADDRESS,NIC,GENDER) "
+                + "values('" + txtFname.getText() + "','"+txtLname.getText()+"', '"+birthday+"' ,'" + txtAddress.getText() + "','" + txtNic.getText() + "','" +getGender()+"')";
         Updater(sql);
         JOptionPane.showMessageDialog(null, "Values are registered");
       

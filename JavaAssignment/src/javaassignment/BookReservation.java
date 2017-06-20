@@ -298,7 +298,8 @@ public class BookReservation extends javax.swing.JFrame {
             CATEGORY = (rs.getString("CATEGORY"));
             YEAR = (rs.getString("YEAR"));
             
-            String sqlinsert = "INSERT INTO reservedbooks (ISBN, BOOKTITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) values('"+ISBN +"','"+ TITLE +"', '"+ AUTHOR +"', '"+PUBLISHER+"', '"+EDITION+"', '"+CATEGORY+"', '"+YEAR+"')";
+            String sqlinsert = "INSERT INTO reservedbooks (ISBN, BOOKTITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) "
+                    + "values('"+ISBN +"','"+ TITLE +"', '"+ AUTHOR +"', '"+PUBLISHER+"', '"+EDITION+"', '"+CATEGORY+"', '"+YEAR+"')";
             Updater(sqlinsert);
            }
         catch( Exception ex){
@@ -375,7 +376,8 @@ public class BookReservation extends javax.swing.JFrame {
             Category = rs.getString("Category");
             Year = rs.getString("Year");
              
-             String sql1 = "INSERT INTO Bookreg (ISBN,TITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) values('"+getISBN()+"', '"+BookTitle+"', '"+Author+"', '"+Publisher+"', '"+Edition+"', '"+Category+"', '"+Year+"')";
+             String sql1 = "INSERT INTO Bookreg (ISBN,TITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) "
+                     + "values('"+getISBN()+"', '"+BookTitle+"', '"+Author+"', '"+Publisher+"', '"+Edition+"', '"+Category+"', '"+Year+"')";
             Updater(sql1);
         }
         catch( Exception ex){
@@ -399,7 +401,7 @@ public class BookReservation extends javax.swing.JFrame {
         return ISBN;
     }
     
-    private String getBorrowID(){
+   /* private String getBorrowID(){ //Uncomment this only if you need to check the borrowID for debugging purposes.
         String BorrowID = "";
          try{               
             String sql = "SELECT BorrowID FROM `bookreservation` WHERE MemberID ='"+txtMemberID.getText()+"'";
@@ -413,7 +415,7 @@ public class BookReservation extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, ex);
         }
         return BorrowID;
-    }
+    }*/
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btnCheckreservation;

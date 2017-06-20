@@ -331,7 +331,8 @@ public class BookReturn extends javax.swing.JFrame {
             lblBookTitleDisplay.setText(BookTitle); 
             // System.out.println(BookTitle+" "+Author+" "+Publisher+" "+Edition+" "+Category+" "+Year);
              
-             String insert = "INSERT INTO Bookreg (ISBN, TITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) values('"+getISBN()+"', '"+BookTitle+"', '"+Author+"', '"+Publisher+"', '"+Edition+"', '"+Category+"', '"+Year+"')";
+             String insert = "INSERT INTO Bookreg (ISBN, TITLE, AUTHOR, PUBLISHER, EDITION, CATEGORY, YEAR) "
+                     + "values('"+getISBN()+"', '"+BookTitle+"', '"+Author+"', '"+Publisher+"', '"+Edition+"', '"+Category+"', '"+Year+"')";
              Updater(insert);
         }
         catch( Exception ex){
