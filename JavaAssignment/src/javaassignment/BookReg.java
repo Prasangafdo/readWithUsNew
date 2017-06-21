@@ -182,10 +182,10 @@ public class BookReg extends javax.swing.JFrame {
         String sql = "INSERT INTO bookreg(ISBN,TITLE,AUTHOR,PUBLISHER,EDITION,CATEGORY,YEAR) "
          + "values('" +txtISBN.getText()+ "','" +txtTitle.getText()+ "','"+ txtAuthor.getText()+ "','"+ txtPublisher.getText()+ "','"+ txtEdition.getText()+ "','" +txtCategory.getText()+ "','" +txtYear.getText()+ "')";
         Updater(sql);
-        JOptionPane.showMessageDialog(null, "Values are updated");
+        JOptionPane.showMessageDialog(null, "Book inserted into the system successfully");
         }
         catch( Exception ex){
-        JOptionPane.showMessageDialog(null, ex);
+        JOptionPane.showMessageDialog(null, "Please fill the details");
         }
 }
     

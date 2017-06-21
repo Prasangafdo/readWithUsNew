@@ -150,7 +150,7 @@ public class Login extends javax.swing.JFrame {
             pw = (rs.getString("password"));
             }
             if(pw.equals(txtPassword.getText())){
-                JOptionPane.showMessageDialog(null, "Login Successfull");
+                JOptionPane.showMessageDialog(null, "Login Successful");
                 
        setVisible(false); //you can't see me!
        dispose(); //Destroy the JFrame object
@@ -160,7 +160,7 @@ public class Login extends javax.swing.JFrame {
             }
         }
         catch( Exception ex){
-        JOptionPane.showMessageDialog(null, ex);
+        JOptionPane.showMessageDialog(null, "Invalid credentials");
         }        
     }//GEN-LAST:event_btnLoginActionPerformed
 
