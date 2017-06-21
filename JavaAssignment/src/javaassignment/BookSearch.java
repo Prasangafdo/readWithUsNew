@@ -196,8 +196,8 @@ public class BookSearch extends javax.swing.JFrame {
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         String ISBN = tblBookData.getValueAt(0, 0).toString();
-        int Book = Integer.valueOf((String) ISBN);
-        String sql = "DELETE from `bookreg` WHERE `ISBN` = '"+Book+"'";
+        //int Book = Integer.valueOf((String) ISBN);
+        String sql = "DELETE from `bookreg` WHERE `ISBN` = '"+ISBN+"'";
         try{
             Updater(sql);
             JOptionPane.showMessageDialog(null, "Value deleted successfully");

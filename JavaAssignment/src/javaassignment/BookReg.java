@@ -54,6 +54,7 @@ public class BookReg extends javax.swing.JFrame {
         txtCategory = new javax.swing.JTextField();
         txtYear = new javax.swing.JTextField();
         btnRegister = new javax.swing.JButton();
+        btnMemberReg = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
@@ -134,6 +135,17 @@ public class BookReg extends javax.swing.JFrame {
         });
         getContentPane().add(btnRegister);
         btnRegister.setBounds(570, 300, 100, 50);
+
+        btnMemberReg.setBackground(new java.awt.Color(209, 198, 27));
+        btnMemberReg.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnMemberReg.setText("Edit Book Details");
+        btnMemberReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMemberRegActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnMemberReg);
+        btnMemberReg.setBounds(360, 300, 180, 50);
 
         jPanel1.setBackground(new java.awt.Color(212, 201, 27));
 
@@ -231,6 +243,11 @@ public class BookReg extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnRegisterActionPerformed
 
+    private void btnMemberRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMemberRegActionPerformed
+        BookSearch bSearch = new BookSearch();
+        bSearch.show();
+    }//GEN-LAST:event_btnMemberRegActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -268,6 +285,7 @@ public class BookReg extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Background;
+    private javax.swing.JButton btnMemberReg;
     private javax.swing.JButton btnRegister;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
